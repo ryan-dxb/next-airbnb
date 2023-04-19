@@ -34,7 +34,7 @@ const RentModal = () => {
 
   const {
     register,
-    handleSumbit,
+    handleSubmit,
     setValue,
     watch,
     formState: { errors },
@@ -85,8 +85,8 @@ const RentModal = () => {
     setStep((prev) => prev + 1);
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (async (data) => {
-    if (step === STEPS.PRICE) {
+  const onSubmit: SubmitHandler<FieldValues> = (async (data: any) => {
+    if (step !== STEPS.PRICE) {
       return onNext();
     }
 
@@ -257,7 +257,7 @@ const RentModal = () => {
       title="Airbnb your home!"
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={handleSumbit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
