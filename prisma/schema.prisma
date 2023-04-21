@@ -52,7 +52,7 @@ model Listing {
   userId        String   @db.ObjectId
   title         String
   description   String?
-  imageSrc      String?
+  imageSrc      String
   category      String
   roomCount     Int
   bathroomCount Int
